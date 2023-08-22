@@ -1,0 +1,20 @@
+<h2>All tasks</h2>
+<% @p.each do |task|%>
+  <% if task.completed %>
+    <% completed = "✔" %>
+  <% else %>
+    <% completed = "⌧" %>
+  <% end %>
+  <table style="width:100%">
+    <tr>
+      <td><input
+      type="checkbox"
+      id="completed"
+      name="completed"
+      <% if task.completed %>
+        checked />
+      <% end %></td>
+      <td><%= link_to task.title, task_path(task) %></td>
+    </tr>
+  </table>
+<% end %>
